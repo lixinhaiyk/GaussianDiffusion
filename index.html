@@ -1,1 +1,493 @@
-hello Mr.Li
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="Instant3D: Instant Text-to-3D Generation">
+  <meta name="keywords" content="NeRF, 3D, Text-to-Image Generation">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Instant3D: Instant Text-to-3D Generation</title>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/showlab_square.png">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+<!-- <nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+  <div class="navbar-menu">
+    <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+      <a class="navbar-item" href="https://keunhong.com">
+      <span class="icon">
+          <i class="fas fa-home"></i>
+      </span>
+      </a> -->
+
+      <!-- <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link">
+          More Research
+        </a>
+        <div class="navbar-dropdown">
+          <a class="navbar-item" href="https://hypernerf.github.io">
+            HyperNeRF
+          </a>
+          <a class="navbar-item" href="https://nerfies.github.io">
+            Nerfies
+          </a>
+          <a class="navbar-item" href="https://latentfusion.github.io">
+            LatentFusion
+          </a>
+          <a class="navbar-item" href="https://photoshape.github.io">
+            PhotoShape
+          </a>
+        </div>
+      </div> -->
+    <!-- </div>
+
+  </div>
+</nav> -->
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">&#9889; <i>Instant3D</i> : Instant Text-to-3D Generation</h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://ming1993li.github.io//">Ming Li</a><sup>1</sup>,</span>
+            <span class="author-block">
+              <a href="https://panzhous.github.io/">Pan Zhou</a><sup>2</sup>,</span>
+            <span class="author-block">
+              <a href="https://jia-wei-liu.github.io/">Jia-Wei Liu</a><sup>1</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://www.jussikeppo.com/">Jussi Keppo</a><sup>1</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://scholar.google.com.sg/citations?user=BGONmkIAAAAJ&hl=en">Min Lin</a><sup>2</sup>,
+            </span>
+            <br>
+            <span class="author-block">
+              <a href="https://scholar.google.com.sg/citations?user=DNuiPHwAAAAJ&hl=en">Shuicheng Yan</a><sup>3</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://xuxy09.github.io/">Xiangyu Xu</a><sup>*4</sup>
+            </span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>National University of Singapore  </span>
+            <span class="author-block"><sup>2</sup>Sea AI Lab</span>
+            <span class="author-block"><sup>3</sup>Skywork AI </span>
+            <br>
+            <span class="author-block"><sup>4</sup>Xi'an Jiaotong University</span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>*</sup>Project Lead and Corresponding Author</span>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+<!--               <span class="link-block">
+                <a href="https://arxiv.org/pdf/2304.12281.pdf"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span> -->
+              <span class="link-block">
+                <a href="http://arxiv.org/abs/2311.08403"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <!-- Video Link. -->
+<!--               <span class="link-block">
+                <a href="https://www.youtube.com/watch?v=wS5k5nNkPi4&t=1s"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-youtube"></i>
+                  </span>
+                  <span>Video</span>
+                </a>
+              </span> -->
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href="https://github.com/ming1993li/Instant3DCodes" 
+                  class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span>
+              <!-- Dataset Link. -->
+<!--               <span class="link-block">
+                <a href="https://drive.google.com/drive/folders/1viuXcihwFpLIjl6TmLyF5VARB7GxEfEv?usp=drive_link"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="far fa-images"></i>
+                  </span>
+                  <span>Data</span> -->
+                  </a>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+                Text-to-3D generation, which aims to synthesize vivid
+                3D objects from text prompts, has attracted much attention
+                from the computer vision community. While several existing
+                works have achieved impressive results for this task, they
+                mainly rely on a time-consuming optimization paradigm.
+                Specifically, these methods optimize a neural field from
+                scratch for each text prompt, taking approximately one hour
+                or more to generate one object. This heavy and repetitive training cost impedes their practical deployment. In
+                this paper, we propose a novel framework for fast text-to-3D generation, dubbed Instant3D. Once trained, Instant3D
+                is able to create a 3D object for an unseen text prompt in
+                less than one second with a single run of a feedforward network. We achieve this remarkable speed by devising a new
+                network that directly constructs a 3D triplane from a text
+                prompt. The core innovation of our Instant3D lies in our
+                exploration of strategies to effectively inject text conditions
+                into the network. In particular, we propose to combine three
+                key mechanisms: cross-attention, style injection, and token-to-plane transformation, which collectively ensure precise
+                alignment of the output with the input text. Furthermore,
+                we propose a simple yet effective activation function, the
+                scaled-sigmoid, to replace the original sigmoid function,
+                which speeds up the training convergence by more than
+                ten times. Finally, to address the Janus (multi-head) problem in 3D generation, we propose an adaptive Perp-Neg
+                algorithm that can dynamically adjust its concept negation
+                scales according to the severity of the Janus problem during
+                training, effectively reducing the multi-head effect. Extensive experiments on a wide variety of benchmark datasets
+                demonstrate that the proposed algorithm performs favorably against the state-of-the-art methods both qualitatively
+                and quantitatively, while achieving significantly better efficiency.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract -->
+
+    <!-- Motivations -->
+      <hr class="divider" />
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Motivation</h2>
+        <div class="content has-text-justified">
+          <p>
+                Comparison of existing SOTA methods with our
+                proposal. Existing methods optimize a randomly initialized NeRF from scratch for each text prompt, which usually requires more than 10,000 iterations, taking hours to
+                converge. In contrast, our approach is designed to learn
+                a text-conditioned NeRF, which takes much less training
+                computational cost and has strong generalization ability on
+                new prompts. It is able to generate a conditional 3D representation (triplane) of a 3D object for an unseen text prompt
+                in one single pass of a feedforward network, taking about
+                <b>25ms</b>.
+          </p>
+          <div class="content has-text-centered">
+            <img src="./static/images/rabbit.png" style="width: 80%"/>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--/ Motivations -->
+
+
+    <!-- Method -->
+    <hr class="divider" />
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Method</h2>
+        <div class="content has-text-justified">
+          <p>
+                  Overview of the proposed <i>Instant3D</i>, which applies a conditional decoder network to map a text prompt to a
+                  corresponding triplane. Three condition mechanisms, i.e., cross-attention, style injection, and token-to-plane transformation,
+                  are seamlessly combined to bridge text and 3D, tackling the issue of weak supervision from SDS. Given a random
+                  camera pose, a 2D image is rendered from the conditioned triplane through coordinate-based feature sampling, point density
+                  and albedo prediction, and differentiable volume rendering. For albedo activation, we propose a scaled-sigmoid function,
+                  effectively accelerating the training convergence. During training, the view image is first diffused by adding random noise
+                  and then fed into a pretrained UNet conditioned on the text prompt for denoising, which provides the gradient of the SDS
+                  loss. We also present an adaptive Perp-Neg algorithm to better solve the Janus problem in our framework. During inference,
+                  our Instant3D can infer a faithful 3D object from an unseen text prompt in less than one second.
+          </p>
+          <img class="thumbnail" src="./static/images/overview.jpg" style="width:100%; margin-bottom:20px">
+        </div>
+      </div>
+    </div>
+    <!--/ Method -->
+
+
+    <!-- Paper video. -->
+      <hr class="divider" />
+      <div class="columns is-centered has-text-centered">
+          <h2 class="title is-3">Results of <i>Instant3D</i></h2>
+      </div>
+      <canvas height="60" class="videoMerge" id="ex2Merge" width="1002"></canvas>
+      <div class="container" style="max-width: 900px;">
+        <div class="columns captioned_videos">
+            <div class="column">
+                <video controls="" loop="" style="width: 100%; object-fit: fill" autoplay>
+                    <source src="./static/videos/a black man wearing a peaked cap is laughing_croped.mp4" type="video/mp4">
+                </video>
+                <h6 class="caption">a black man wearing a peaked cap is laughing</h6>
+            </div>
+            <div class="column">
+                <video controls="" loop="" style="width: 100%; object-fit: fill" autoplay>
+                    <source src="./static/videos/a boy wearing a peaked cap is angry_croped.mp4" type="video/mp4">
+                </video>
+                <h6 class="caption">a boy wearing a peaked cap is angry</h6>
+            </div>
+            <div class="column">
+                <video controls="" loop="" style="width: 100%; object-fit: fill" autoplay>
+                    <source src="./static/videos/a dog wearing a tie  and wearing a party hat_croped.mp4" type="video/mp4">
+                </video>
+                <h6 class="caption">a dog wearing a tie  and wearing a party hat</h6>
+           </div>
+           <div class="column">
+                <video controls="" loop="" style="width: 100%; object-fit: fill" autoplay>
+                    <source src="./static/videos/a koala sitting on a stone and wearing a cape and wearing a cowboy hat_croped.mp4" type="video/mp4">
+                </video>
+                <h6 class="caption">a koala sitting on a stone and wearing a cape and wearing a cowboy hat</h6>
+           </div>
+        </div>
+        <canvas height="25" class="videoMerge" id="ex2Merge" width="1002"></canvas>
+        <div class="columns captioned_videos">
+            <div class="column">
+                <video controls="" loop="" style="width: 100%;  object-fit: fill" autoplay>
+                    <source src="./static/videos/a man wearing a suit is working on a laptop_croped.mp4" type="video/mp4">
+                </video>
+                <h6 class="caption">a man wearing a suit is working on a laptop</h6>
+            </div>
+            <div class="column">
+                <video controls="" loop="" style="width: 100%;  object-fit: fill" autoplay>
+                    <source src="./static/videos/a muscular man is exercising in a fitness room_croped.mp4" type="video/mp4">
+                </video>
+                <h6 class="caption">a muscular man is exercising in a fitness room</h6>
+            </div>
+            <div class="column">
+                <video controls="" loop="" style="width: 100%;  object-fit: fill" autoplay>
+                    <source src="./static/videos/a panda sitting in a basket and wearing a straw hat_croped.mp4" type="video/mp4">
+                </video>
+                <h6 class="caption">a panda sitting in a basket and wearing a straw hat</h6>
+           </div>
+           <div class="column">
+                <video controls="" loop="" style="width: 100%; object-fit: fill" autoplay>
+                    <source src="./static/videos/a panda sitting in a bathtub and wearing a beanie_croped.mp4" type="video/mp4">
+                </video>
+                <h6 class="caption">a panda sitting in a bathtub and wearing a beanie</h6>
+           </div>
+        </div>
+        <canvas height="25" class="videoMerge" id="ex2Merge" width="1002"></canvas>
+        <div class="columns captioned_videos">
+            <div class="column">
+                <video controls="" loop="" style="width: 100%; object-fit: fill" autoplay>
+                    <source src="./static/videos/a pregnant woman wearing a dress is shopping_croped.mp4" type="video/mp4">
+                </video>
+                <h6 class="caption">a pregnant woman wearing a dress is shopping</h6>
+            </div>
+            <div class="column">
+                <video controls="" loop="" style="width: 100%; object-fit: fill" autoplay>
+                    <source src="./static/videos/a rabbit sitting on a stone and wearing a tie_croped.mp4" type="video/mp4">
+                </video>
+                <h6 class="caption">a rabbit sitting on a stone and wearing a tie</h6>
+            </div>
+            <div class="column">
+                <video controls="" loop="" style="width: 100%; object-fit: fill" autoplay>
+                    <source src="./static/videos/a teddy bear sitting on a stone and wearing a scarf  and wearing a flat cap_croped.mp4" type="video/mp4">
+                </video>
+                <h6 class="caption">a teddy bear sitting on a stone and wearing a scarf  and wearing a flat cap</h6>
+           </div>
+           <div class="column">
+                <video controls="" loop="" style="width: 100%; object-fit: fill" autoplay>
+                    <source src="./static/videos/a teddy bear sitting on books and wearing a scarf  and wearing a flat cap_croped.mp4" type="video/mp4">
+                </video>
+                <h6 class="caption">a teddy bear sitting on books and wearing a scarf  and wearing a flat cap</h6>
+           </div>
+        </div>
+        <canvas height="25" class="videoMerge" id="ex2Merge" width="1002"></canvas>
+        <div class="columns captioned_videos">
+            <div class="column">
+                <video controls="" loop="" style="width: 100%;  object-fit: fill" autoplay>
+                    <source src="./static/videos/a white man wearing a steampunk hat is singing_croped.mp4" type="video/mp4">
+                </video>
+                <h6 class="caption">a white man wearing a steampunk hat is singing</h6>
+            </div>
+            <div class="column">
+                <video controls="" loop="" style="width: 100%;  object-fit: fill" autoplay>
+                    <source src="./static/videos/a white woman wearing a peaked cap is grinning_croped.mp4" type="video/mp4">
+                </video>
+                <h6 class="caption">a white woman wearing a peaked cap is grinning</h6>
+            </div>
+            <div class="column">
+                <video controls="" loop="" style="width: 100%; object-fit: fill" autoplay>
+                    <source src="./static/videos/a wolf wearing a tie and wearing a party hat_croped.mp4" type="video/mp4">
+                </video>
+                <h6 class="caption">a wolf wearing a tie and wearing a party hat</h6>
+           </div>
+           <div class="column">
+                <video controls="" loop="" style="width: 100%;  object-fit: fill" autoplay>
+                    <source src="./static/videos/a woman wearing a backpack is climbing a mountain_croped.mp4" type="video/mp4">
+                </video>
+                <h6 class="caption">a woman wearing a backpack is climbing a mountain</h6>
+           </div>
+        </div>
+        <canvas height="25" class="videoMerge" id="ex2Merge" width="1002"></canvas>
+        <div class="columns captioned_videos">
+            <div class="column">
+                <video controls="" loop="" style="width: 100%;  object-fit: fill" autoplay>
+                    <source src="./static/videos/a woman wearing a long dress is playing with a dog_croped.mp4" type="video/mp4">
+                </video>
+                <h6 class="caption">a woman wearing a long dress is playing with a dog</h6>
+            </div>
+            <div class="column">
+                <video controls="" loop="" style="width: 100%;  object-fit: fill" autoplay>
+                    <source src="./static/videos/a woman wearing a tailored suit is giving a presentation_croped.mp4" type="video/mp4">
+                </video>
+                <h6 class="caption">a woman wearing a tailored suit is giving a presentation</h6>
+            </div>
+            <div class="column">
+                <video controls="" loop="" style="width: 100%; object-fit: fill" autoplay>
+                    <source src="./static/videos/a woman with long hair wearing jeans is shopping_croped.mp4" type="video/mp4">
+                </video>
+                <h6 class="caption">a woman with long hair wearing jeans is shopping</h6>
+           </div>
+           <div class="column">
+                <video controls="" loop="" style="width: 100%; object-fit: fill" autoplay>
+                    <source src="./static/videos/an elderly and fat woman is trimming her plants_croped.mp4" type="video/mp4">
+                </video>
+                <h6 class="caption">an elderly and fat woman is trimming her plants</h6>
+           </div>
+        </div>
+        <canvas height="25" class="videoMerge" id="ex2Merge" width="1002"></canvas>
+        <div class="columns captioned_videos">
+            <div class="column">
+                <video controls="" loop="" style="width: 100%;  object-fit: fill" autoplay>
+                    <source src="./static/videos/an elderly man wearing a peaked cap is grinning_croped.mp4" type="video/mp4">
+                </video>
+                <h6 class="caption">an elderly man wearing a peaked cap is grinning</h6>
+            </div>
+            <div class="column">
+                <video controls="" loop="" style="width: 100%;  object-fit: fill" autoplay>
+                    <source src="./static/videos/an elderly woman wearing a Santa hat is looking ahead with a very serious expression_croped.mp4" type="video/mp4">
+                </video>
+                <h6 class="caption">an elderly woman wearing a Santa hat is looking ahead with a very serious expression</h6>
+            </div>
+            <div class="column">
+                <video controls="" loop="" style="width: 100%; object-fit: fill" autoplay>
+                    <source src="./static/videos/Kobe wearing a crown is crying_croped.mp4" type="video/mp4">
+                </video>
+                <h6 class="caption">Kobe wearing a crown is crying</h6>
+           </div>
+           <div class="column">
+                <video controls="" loop="" style="width: 100%; object-fit: fill" autoplay>
+                    <source src="./static/videos/Obama wearing a peaked cap is talking_croped.mp4" type="video/mp4">
+                </video>
+                <h6 class="caption">Obama wearing a peaked cap is talking</h6>
+           </div>
+        </div>
+      </div>
+    <!--/ Paper video. -->
+  </div>
+
+</section>
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@article{li2023instant3d,
+  title     = {Instant3D: Instant Text-to-3D Generation},
+  author    = {Li, Ming and Zhou, Pan and Liu, Jia-Wei, and Keppo, Jussi and Lin, Min and Yan, Shuicheng and Xu, Xiangyu},
+  journal   = {arxiv: 2311.08403},
+  year      = {2023},
+}</code></pre>
+  </div>
+</section>
+
+<canvas height="25" class="videoMerge" id="ex2Merge" width="1002"></canvas>
+<!--<hr class="divider" />-->
+<footer class="footer">
+  <div class="container">
+<!--     <div class="content has-text-centered">
+      <a class="icon-link"
+         href="https://arxiv.org/pdf/2304.12281.pdf">
+        <i class="fas fa-file-pdf"></i>
+      </a>
+      <a class="icon-link" href="https://showlab.github.io/HOSNeRF" class="external-link" disabled>
+        <i class="fab fa-github"></i>
+      </a>
+    </div> -->
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <!-- <p>
+            This website is licensed under a <a rel="license"
+                                                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p> -->
+          <p>
+            This website is borrowed from <a
+              href="https://github.com/nerfies/nerfies.github.io">nerfies</a>. We are very grateful for their work.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
